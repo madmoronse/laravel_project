@@ -1,0 +1,31 @@
+stages:
+  - first
+  - second
+  - third
+
+print_text:
+  stage: second
+  tags:
+    - build
+  only:
+    - develop
+  script:
+    - echo "Hello first!"
+
+print_second:
+  stage: first
+  tags:
+    - build
+  only:
+    - develop
+  script:
+    - echo "Hello second!"
+
+print_third:
+  stage: third
+  tags:
+    - build
+  only:
+    - develop
+  script:
+    - echo "Hello third!"
